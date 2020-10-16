@@ -18,7 +18,7 @@ var connectionString =
   database +
   options;
 
-const mongoUri = process.env.MONGODB_URI || connectionString;
+const MONGODB_URI = process.env.MONGODB_URI || connectionString;
 
 const dbOptions = {
   useNewUrlParser: true,
@@ -26,7 +26,7 @@ const dbOptions = {
 };
 
 module.exports = () => {
-  return MongoClient.connect(mongoUri, dbOptions, function (err, db) {
+  return MongoClient.connect(MONGODB_URI, dbOptions, function (err, db) {
     if (db) {
       db.close();
     }
