@@ -1,4 +1,4 @@
-// const mongoose = require("mongoose");
+// Ensure you have run 'npm install mongodb'
 var MongoClient = require("mongodb").MongoClient;
 
 var username = "user";
@@ -18,15 +18,8 @@ var connectionString =
   database +
   options;
 
-const MONGODB_URI = process.env.MONGODB_URI || connectionString;
-
-const dbOptions = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
-
 module.exports = () => {
-  return MongoClient.connect(MONGODB_URI, dbOptions, function (err, db) {
+  return MongoClient.connect(connectionString, function (err, db) {
     if (db) {
       db.close();
     }
