@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const initDb = require("./config/initDb");
 const morgan = require("morgan");
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5000;
 const app = express();
 
 // log all requests to the console in development
