@@ -3,12 +3,14 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 import Home from "./pages/Home/index";
 import About from "./pages/About/about";
+import LocationSearch from "./pages/LocationSearch/location";
+import MainNav from "./components/NavBar";
 
 function App() {
   return (
     <Router>
       <div>
-        {/* <Navbar /> */}
+        <MainNav />
         <Switch>
           <Route exact path={["/", "/home"]}>
             <Home />
@@ -16,8 +18,8 @@ function App() {
           <Route exact path={["/about"]}>
             <About />
           </Route>
-          <Route exact path={["/loca"]}>
-            <About />
+          <Route exact path={["/location"]}>
+            <LocationSearch />
           </Route>
         </Switch>
       </div>

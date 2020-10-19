@@ -1,0 +1,31 @@
+#main {
+  margin-top: 5rem;
+}
+
+.container {
+  background-color: orange;
+  /* position:absolute; */
+}
+
+.card {
+  background-color: black;
+}
+
+.card-title,
+.card-subtitle,
+.beginBtn {
+  text-align: center;
+}
+
+.card-title {
+  color: rgb(255, 255, 255);
+}
+
+.card-subtitle {
+  color: orange;
+  font-size: small;
+}
+
+.beginBtn {
+  margin-top: 2rem;
+}
