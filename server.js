@@ -1,7 +1,8 @@
 const express = require("express");
 const path = require("path");
-const initDb = require("./config/initDb");
+// const initDb = require("./config/initDb");
 const morgan = require("morgan");
+const mongoose = require("mongoose");
 const PORT = process.env.PORT || 5000;
 const app = express();
 
@@ -14,7 +15,16 @@ if (process.env.NODE_ENV !== "production") {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-initDb();
+// initDb();
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/smart-walker",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  }
+);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
