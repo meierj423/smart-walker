@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import GenericButton from "../Button/button";
 
 function Textbox({ title, text, buttonDisplay, btnMsg }) {
-    return (
+  return (
     <div id="main">
       <div className="container p-3">
         <div className="row">
@@ -14,12 +14,7 @@ function Textbox({ title, text, buttonDisplay, btnMsg }) {
                 <h2 className="card-title">{title}</h2>
                 <p className="card-subtitle mb-2">{text} </p>
               </div>
-              <GenericButton buttonDisplay={buttonDisplay} btnMsg={btnMsg}/>
-              {/* <div className="beginBtn">
-                <Button variant="light" size="lg" href="/location">
-                  Let's Begin
-                </Button>
-              </div> */}
+              <GenericButton buttonDisplay={buttonDisplay} btnMsg={btnMsg} />
             </div>
           </div>
         </div>

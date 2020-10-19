@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
-// import "./about.css";
+import React, { Component } from "react";
+// import "./home.css";
+
+import Button from "react-bootstrap/Button";
+import Textbox from "../../components/TextBox";
+import GenericButton from "../../components/Button/button";
 
 function LocationSearch() {
-  return <div>Location Search Page</div>;
+  return <Textbox title="Location Search"/>;
 }
 
 export default LocationSearch;
