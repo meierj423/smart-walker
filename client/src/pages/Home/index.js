@@ -12,6 +12,7 @@ function Home() {
       text="A Place to Plan Safe Walks With Your Dog"
       buttonDisplay="block"
       btnMsg="Let's Begin"
+      formDisplay="none"
     />
   );
 }
