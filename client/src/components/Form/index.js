@@ -23,11 +23,31 @@ class LocationForm extends React.Component {
     this.setState({ state: event.target.value });
   }
 
+  locationCheck() {
+    while (this.state.zip === "") {
+      if (this.state.city === "" && this.state.state === "") {
+        throw "Please enter either a zip code or a city and state";
+      } else if (this.state.city !== "" && this.state.state === "") {
+        throw "Please enter a state";
+      } else if (this.state.city === "" && this.state.state !== "") {
+        throw "Please enter a city";
+      }
+      return;
+    }
+  }
+
   handleSubmit(event) {
+    event.preventDefault();
     alert(
       `Zip: ${this.state.zip} | City: ${this.state.city} | State: ${this.state.state}`
     );
-    event.preventDefault();
+    try {
+      this.locationCheck();
+      alert("you pass");
+      this.setState({ zip: "", city: "", state: "" });
+    } catch (error) {
+      alert(error);
+    }
   }
 
   render() {
@@ -48,6 +68,7 @@ class LocationForm extends React.Component {
               placeholder={this.props.placeholder1}
             />
           </div>
+          <h5>Or</h5>
           {/* Input for city */}
           <div className="centeredRow">
             <input

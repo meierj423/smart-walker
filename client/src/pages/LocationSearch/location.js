@@ -10,7 +10,6 @@ function LocationSearch() {
       text="Enter your zip code or city"
       formDisplay="block"
       placeholder1="Enter zip code"
-      orDisplay="block"
       placeholder2="Enter city"
       placeholder3="Enter state"
       buttonDisplay="none"
