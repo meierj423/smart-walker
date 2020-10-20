@@ -1,5 +1,6 @@
 import React from "react";
 import "./Form.css";
+import GenericButton from "../Button/button";
 
 class LocationForm extends React.Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class LocationForm extends React.Component {
           />
         </label>
         <input type="submit" value="Submit" />
+        <GenericButton btnMsg={this.state.value}></GenericButton>
       </form>
     );
   }

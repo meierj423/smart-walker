@@ -1,7 +1,7 @@
 import React from "react";
 
 import Textbox from "../../components/TextBox";
-import GenericButton from "../../components/Button/button";
+import LocationForm from "../../components/Form";
 
 function LocationSearch() {
   return (
