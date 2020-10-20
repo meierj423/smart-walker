@@ -13,11 +13,11 @@
 
 .card-title,
 .card-subtitle,
-.beginBtn {
+.beginBtn, .or {
   text-align: center;
 }
 
-.card-title {
+.card-title, .or {
   color: rgb(255, 255, 255);
 }
 
@@ -28,4 +28,8 @@
 
 .beginBtn {
   margin-top: 2rem;
+}
+
+.or {
+  margin: 1rem;
 }

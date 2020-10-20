@@ -9,6 +9,7 @@ function About() {
       text="Description goes here!"
       buttonDisplay="none"
       formDisplay="none"
+      orDisplay="none"
     />
   );
 }

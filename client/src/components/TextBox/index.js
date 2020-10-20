@@ -19,7 +19,17 @@ function Textbox({ ...props }) {
                 formDisplay={props.formDisplay}
                 placeholder1={props.placeholder1}
               />
-              <p>Or</p>
+              <h5 className="or" style={{ display: props.orDisplay }}>
+                Or
+              </h5>
+              <LocationForm
+                formDisplay={props.formDisplay}
+                placeholder1={props.placeholder2}
+              />
+              <LocationForm
+                formDisplay={props.formDisplay}
+                placeholder1={props.placeholder3}
+              />
               <GenericButton
                 buttonDisplay={props.buttonDisplay}
                 btnMsg={props.btnMsg}

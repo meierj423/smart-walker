@@ -13,6 +13,7 @@ function Home() {
       buttonDisplay="block"
       btnMsg="Let's Begin"
       formDisplay="none"
+      orDisplay="none"
     />
   );
 }
