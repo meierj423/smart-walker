@@ -2,6 +2,7 @@ import React from "react";
 
 import Textbox from "../../components/TextBox";
 import LocationForm from "../../components/Form";
+import WeatherResults from "../WeatherResults";
 
 function LocationSearch() {
   return (

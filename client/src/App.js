@@ -5,6 +5,7 @@ import Home from "./pages/Home/index";
 import About from "./pages/About/about";
 import LocationSearch from "./pages/LocationSearch/location";
 import MainNav from "./components/NavBar";
+import WeatherResults from "./pages/WeatherResults";
 
 function App() {
   return (
@@ -21,6 +22,10 @@ function App() {
           <Route exact path={["/location"]}>
             <LocationSearch />
           </Route>
+          <Route
+            path="/results"
+            render={(props) => <WeatherResults {...props} />}
+          />
         </Switch>
       </div>
     </Router>
