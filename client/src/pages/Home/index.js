@@ -1,9 +1,6 @@
-import React, { Component } from "react";
-// import "./home.css";
+import React from "react";
 
-import Button from "react-bootstrap/Button";
 import Textbox from "../../components/TextBox";
-import GenericButton from "../../components/Button/button";
 
 function Home() {
   return (

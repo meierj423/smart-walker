@@ -1,7 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import "./Form.css";
-import GenericButton from "../Button/button";
 
 class LocationForm extends React.Component {
   constructor(props) {
@@ -45,7 +44,6 @@ class LocationForm extends React.Component {
     try {
       this.locationCheck();
       alert("you pass");
-      // window.location.href = "/results";
       this.setState({ redirect: true });
     } catch (error) {
       alert(error);
@@ -67,7 +65,6 @@ class LocationForm extends React.Component {
         />
       );
     } else {
-      console.log("form props", this.props);
       return (
         <form
           className="form"
