@@ -3,6 +3,8 @@ const path = require("path");
 // const initDb = require("./config/initDb");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+const zipRouter = require("./routes/api-zip");
+
 const PORT = process.env.PORT || 5000;
 const app = express();
 
@@ -14,6 +16,8 @@ if (process.env.NODE_ENV !== "production") {
 // Setting up express to use json and set it to req.body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(zipRouter);
 
 // initDb();
 mongoose.connect(

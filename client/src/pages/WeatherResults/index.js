@@ -17,9 +17,20 @@ class WeatherResults extends React.Component {
     // const state = this.props.location.state.state;
     fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${zip}&key=${GEOCODE_API_KEY}`
-    ).then((res) =>
-      res.json().then((data) => console.log(data.results[0].geometry.location))
-    );
+    ).then(function (res) {
+      res.json().then(function (data) {
+        let lat = data.results[0].geometry.location.lat;
+        let lng = data.results[0].geometry.location.lng;
+        console.log(`Lat: ${lat} | Lng: ${lng}`);
+        fetch(
+          `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&appid=${WEATHER_API_KEY}`
+        ).then(function (res) {
+          res.json().then(function (data) {
+            console.log(data);
+          });
+        });
+      });
+    });
   }
 
   render() {
