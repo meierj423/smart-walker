@@ -28,3 +28,35 @@ p {
   border-width: 1px;
   margin-left: 2px;
 }
+
+.big-danger-cold {
+  color: violet;
+}
+
+.medium-danger-cold {
+  color: blue;
+}
+
+.small-danger-cold {
+  color: lightskyblue;
+}
+
+.caution-cold {
+  color: turquoise;
+}
+
+.safe {
+  color: green;
+}
+
+.caution-hot {
+  color: yellow;
+}
+
+.small-danger-hot {
+  color: orange;
+}
+
+.big-danger-hot {
+  color: red;
+}

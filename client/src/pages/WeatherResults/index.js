@@ -71,6 +71,11 @@ class WeatherResults extends React.Component {
     const city = this.props.location.state.city;
     const state = this.props.location.state.state;
 
+    for (let i = 0; i < hourlyFeelsLike.length; i++) {
+      if (hourlyFeelsLike[i] > 65.0) {
+        console.log("less than 70!");
+      }
+    }
     return (
       <div id="main">
         <div className="container p-3">
@@ -104,11 +109,68 @@ class WeatherResults extends React.Component {
                   <div className="temp-column">
                     <p>Temp</p>
                     <div className="col">
-                      {forecastArr.map((hour) => (
-                        <div className="temps" key={hour.dt}>
-                          {hour.temp}°F
-                        </div>
-                      ))}
+                      {forecastArr.map((hour) => {
+                        if (hour.feels_like < 15)
+                          return (
+                            <div
+                              className="temps big-danger-cold"
+                              key={hour.dt}
+                            >
+                              {hour.feels_like}°F
+                            </div>
+                          );
+                        else if (hour.feels_like >= 15 && hour.feels_like < 30)
+                          return (
+                            <div
+                              className="temps medium-danger-cold"
+                              key={hour.dt}
+                            >
+                              {hour.feels_like}°F
+                            </div>
+                          );
+                        else if (hour.feels_like >= 30 && hour.feels_like < 45)
+                          return (
+                            <div
+                              className="temps small-danger-cold"
+                              key={hour.dt}
+                            >
+                              {hour.feels_like}°F
+                            </div>
+                          );
+                        else if (hour.feels_like >= 45 && hour.feels_like < 50)
+                          return (
+                            <div className="temps caution-cold" key={hour.dt}>
+                              {hour.feels_like}°F
+                            </div>
+                          );
+                        else if (hour.feels_like >= 50 && hour.feels_like < 70)
+                          return (
+                            <div className="temps safe" key={hour.dt}>
+                              {hour.feels_like}°F
+                            </div>
+                          );
+                        else if (hour.feels_like >= 70 && hour.feels_like < 75)
+                          return (
+                            <div className="temps caution-hot" key={hour.dt}>
+                              {hour.feels_like}°F
+                            </div>
+                          );
+                        else if (hour.feels_like >= 75 && hour.feels_like < 85)
+                          return (
+                            <div
+                              className="temps small-danger-hot"
+                              key={hour.dt}
+                            >
+                              {hour.feels_like}°F
+                            </div>
+                          );
+                        else
+                          return (
+                            <div className="temps big-danger-hot" key={hour.dt}>
+                              {hour.feels_like}°F
+                            </div>
+                          );
+                      })}
                     </div>
                   </div>
                 </div>
