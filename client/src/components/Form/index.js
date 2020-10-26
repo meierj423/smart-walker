@@ -38,12 +38,11 @@ class LocationForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    alert(
-      `Zip: ${this.state.zip} | City: ${this.state.city} | State: ${this.state.state}`
-    );
+    // alert(
+    //   `Zip: ${this.state.zip} | City: ${this.state.city} | State: ${this.state.state}`
+    // );
     try {
       this.locationCheck();
-      alert("you pass");
       this.setState({ redirect: true });
     } catch (error) {
       alert(error);
@@ -81,9 +80,9 @@ class LocationForm extends React.Component {
                 placeholder={this.props.placeholder1}
               />
             </div>
-            <h5>Or</h5>
+            {/* <h5>Or</h5> */}
             {/* Input for city */}
-            <div className="centeredRow">
+            {/* <div className="centeredRow">
               <input
                 type="text"
                 value={this.state.city}
@@ -92,14 +91,14 @@ class LocationForm extends React.Component {
               />
             </div>
             {/* Input for state */}
-            <div className="centeredRow">
+            {/* <div className="centeredRow">
               <input
                 type="text"
                 value={this.state.state}
                 onChange={this.handleStateChange}
                 placeholder={this.props.placeholder3}
               />
-            </div>
+            </div> */}
           </label>
           <div className="centeredRow">
             <input type="submit" value="Next" />

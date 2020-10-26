@@ -1,4 +1,5 @@
 import React from "react";
+import Legend from "../../components/Legend";
 import "./weather.css";
 import Textbox from "../../components/TextBox";
 
@@ -82,7 +83,9 @@ class WeatherResults extends React.Component {
           <div className="row centered-rows">
             <div className="col">
               <div className="card p-3">
-                <div className="card-body"></div>
+                <div className="card-body legend">
+                  <Legend />
+                </div>
                 <div className="row centered-rows">
                   <div className="date-column">
                     <p>Date</p>

@@ -6,7 +6,7 @@ function LocationSearch() {
   return (
     <Textbox
       title="Location Search"
-      text="Enter your zip code or city"
+      text="Enter your zip code"
       formDisplay="block"
       placeholder1="Enter zip code"
       placeholder2="Enter city"

@@ -1,0 +1,13 @@
+h3 {
+  padding: 2px;
+  color: orange;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.cold-temps,
+.hot-temps,
+.first-limit {
+  color: white;
+  text-align: center;
+}

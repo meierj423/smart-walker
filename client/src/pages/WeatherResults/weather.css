@@ -20,13 +20,14 @@ p {
   padding: 0.5em;
 }
 
+.legend,
 .date-column,
 .time-column,
 .temp-column {
   border-style: solid;
   border-color: orange;
   border-width: 1px;
-  margin-left: 2px;
+  margin: 2px;
 }
 
 .big-danger-cold {
@@ -34,7 +35,7 @@ p {
 }
 
 .medium-danger-cold {
-  color: blue;
+  color: rgb(54, 54, 251);
 }
 
 .small-danger-cold {
