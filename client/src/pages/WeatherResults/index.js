@@ -39,6 +39,34 @@ class WeatherResults extends React.Component {
   render() {
     const forecastArr = this.state.forecast;
     console.log(forecastArr);
+
+    // Table data
+    const unixTimeStamps = forecastArr.map((hour) => hour.dt);
+    console.log("Times", unixTimeStamps);
+    const hourlyFeelsLike = forecastArr.map((hour) => hour.feels_like);
+    console.log("Hourly Feels Like Temps", hourlyFeelsLike);
+
+    // let firstUnixTime = times[0];
+    // console.log(times[0]);
+    // let dateObj = new Date(firstUnixTime * 1000);
+    // let date = dateObj.toLocaleDateString();
+    // let time = dateObj.toLocaleTimeString();
+
+    const dates = unixTimeStamps.map((timestamp) =>
+      new Date(timestamp * 1000).toLocaleDateString()
+    );
+    const times = unixTimeStamps.map((timestamp) =>
+      new Date(timestamp * 1000).toLocaleTimeString()
+    );
+    console.log("in progress", dates);
+
+    // let hours = date.getHours();
+    // let minutes = "0" + date.getMinutes();
+    // let seconds = "0" + date.getSeconds();
+    // let formattedTime =
+    //   hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
+    // console.log(date, time);
+
     const zip = this.props.location.state.zip;
     const city = this.props.location.state.city;
     const state = this.props.location.state.state;
@@ -46,20 +74,44 @@ class WeatherResults extends React.Component {
     return (
       <div id="main">
         <div className="container p-3">
-          <div className="row">
-            <div className="col-sm">
+          <div className="row centered-rows">
+            <div className="col">
               <div className="card p-3">
-                <div className="card-body">
-                  <h2 className="card-title"></h2>
-                  <p className="card-subtitle mb-2"> </p>
-                </div>
-                <ul>
-                  {forecastArr.map((hour) => (
-                    <div className="temps" key={hour.dt}>
-                      {hour.temp}
+                <div className="card-body"></div>
+                <div className="row centered-rows">
+                  <div className="date-column">
+                    <p>Date</p>
+                    <div className="col">
+                      {dates.map((date) => (
+                        <div className="dates" key={Math.random()}>
+                          {date}
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </ul>
+                  </div>
+
+                  <div className="time-column">
+                    <p>Time</p>
+                    <div className="col">
+                      {times.map((time) => (
+                        <div className="times" key={Math.random()}>
+                          {time}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="temp-column">
+                    <p>Temp</p>
+                    <div className="col">
+                      {forecastArr.map((hour) => (
+                        <div className="temps" key={hour.dt}>
+                          {hour.temp}°F
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -1,3 +1,30 @@
+.col {
+  padding: 0px;
+}
+
+.centered-rows {
+  margin: 0 auto;
+}
+
+p {
+  margin-top: 0.5em;
+  font-weight: bold;
+  text-align: center;
+  color: orange;
+}
+.dates,
+.times,
 .temps {
-    color: white;
+  text-align: center;
+  color: white;
+  padding: 0.5em;
+}
+
+.date-column,
+.time-column,
+.temp-column {
+  border-style: solid;
+  border-color: orange;
+  border-width: 1px;
+  margin-left: 2px;
 }
