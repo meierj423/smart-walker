@@ -5,16 +5,18 @@ function Legend() {
   return (
     <div className="legend-component">
       <div className="row">
-        <h3 className="legend-header">Legend</h3>
+        <h5>Legend</h5>
       </div>
-      <div className="row">
+      <div className="row limits-row">
         <div className="col">
-          <div className="cold-temps">Cold Limits</div>
-          <div className="row">hi</div>
+          <p className="limits safe">Safe</p>
+        </div>
+        <div className="col">
+          <p className="limits caution">Caution</p>
         </div>
 
         <div className="col">
-          <div className="hot-temps">Hot Limits</div>
+          <p className="limits danger">Dangerous</p>
         </div>
       </div>
     </div>

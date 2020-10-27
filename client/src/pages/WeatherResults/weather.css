@@ -30,34 +30,23 @@ p {
   margin: 2px;
 }
 
-.big-danger-cold {
-  color: violet;
-}
-
-.medium-danger-cold {
-  color: rgb(54, 54, 251);
-}
-
-.small-danger-cold {
-  color: lightskyblue;
-}
-
-.caution-cold {
-  color: turquoise;
+.legend {
+  padding-top: 1em;
+  padding-bottom: 0em;
 }
 
 .safe {
   color: green;
 }
 
-.caution-hot {
+.caution {
   color: yellow;
 }
 
-.small-danger-hot {
+.warning {
   color: orange;
 }
 
-.big-danger-hot {
+.danger {
   color: red;
 }

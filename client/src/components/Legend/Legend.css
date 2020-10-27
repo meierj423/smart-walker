@@ -1,13 +1,15 @@
-h3 {
+h5 {
   padding: 2px;
-  color: orange;
+  color: black;
+  background-color: white;
   font-weight: bold;
   margin: 0 auto;
 }
 
-.cold-temps,
-.hot-temps,
-.first-limit {
-  color: white;
-  text-align: center;
+.limits-row {
+  margin: 0 auto;
+}
+
+.limits {
+  font-size: small;
 }
