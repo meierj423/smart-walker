@@ -1,8 +1,13 @@
-h5 {
+.or {
   color: white;
+  background-color: black;
   margin: 1rem;
 }
 
 .form {
   text-align: center;
+}
+
+.inputField {
+  width: 13em;
 }

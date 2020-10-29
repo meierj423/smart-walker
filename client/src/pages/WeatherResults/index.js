@@ -9,49 +9,65 @@ const GEOCODE_API_KEY = "AIzaSyArMGDSwWUvndNNSTGCV27GSE8IUwYgiMw";
 class WeatherResults extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { forecast: [] };
+    this.state = { forecast: [], location: "" };
   }
 
   componentDidMount() {
-    // const zip = this.props.location.state.zip;
     const zip = this.props.location.state.zip;
-    // const city = this.props.location.state.city;
-    // const state = this.props.location.state.state;
-    fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${zip}&key=${GEOCODE_API_KEY}`
-    ).then((res) => {
-      res.json().then((data) => {
-        let lat = data.results[0].geometry.location.lat;
-        let lng = data.results[0].geometry.location.lng;
-        console.log(`Lat: ${lat} | Lng: ${lng}`);
-        fetch(
-          `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&units=imperial&appid=${WEATHER_API_KEY}`
-        ).then((res) => {
-          res.json().then((data) => {
-            console.log(data.hourly);
-            const forecastData = data.hourly;
-            this.setState({ forecast: forecastData });
+    const city = this.props.location.state.city;
+    const state = this.props.location.state.state;
+    if (zip) {
+      fetch(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${zip}&key=${GEOCODE_API_KEY}`
+      ).then((res) => {
+        res.json().then((data) => {
+          let locationData = data.results[0].formatted_address;
+          console.log(locationData);
+          this.setState({ location: locationData });
+          let lat = data.results[0].geometry.location.lat;
+          let lng = data.results[0].geometry.location.lng;
+          fetch(
+            `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&units=imperial&appid=${WEATHER_API_KEY}`
+          ).then((res) => {
+            res.json().then((data) => {
+              const forecastData = data.hourly;
+              this.setState({ forecast: forecastData });
+            });
           });
         });
       });
-    });
+    } else if (city && state) {
+      fetch(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${city}+${state}&key=${GEOCODE_API_KEY}`
+      ).then((res) => {
+        res.json().then((data) => {
+          console.log(data);
+          let locationData = data.results[0].formatted_address;
+          console.log(locationData);
+          this.setState({ location: locationData });
+          let lat = data.results[0].geometry.location.lat;
+          let lng = data.results[0].geometry.location.lng;
+          fetch(
+            `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&units=imperial&appid=${WEATHER_API_KEY}`
+          ).then((res) => {
+            res.json().then((data) => {
+              const forecastData = data.hourly;
+              this.setState({ forecast: forecastData });
+            });
+          });
+        });
+      });
+    } else {
+      alert("Please enter a valid location");
+    }
   }
 
   render() {
     const forecastArr = this.state.forecast;
-    console.log(forecastArr);
 
     // Table data
     const unixTimeStamps = forecastArr.map((hour) => hour.dt);
-    console.log("Times", unixTimeStamps);
     const hourlyFeelsLike = forecastArr.map((hour) => hour.feels_like);
-    console.log("Hourly Feels Like Temps", hourlyFeelsLike);
-
-    // let firstUnixTime = times[0];
-    // console.log(times[0]);
-    // let dateObj = new Date(firstUnixTime * 1000);
-    // let date = dateObj.toLocaleDateString();
-    // let time = dateObj.toLocaleTimeString();
 
     const dates = unixTimeStamps.map((timestamp) =>
       new Date(timestamp * 1000).toLocaleDateString()
@@ -59,24 +75,11 @@ class WeatherResults extends React.Component {
     const times = unixTimeStamps.map((timestamp) =>
       new Date(timestamp * 1000).toLocaleTimeString()
     );
-    console.log("in progress", dates);
-
-    // let hours = date.getHours();
-    // let minutes = "0" + date.getMinutes();
-    // let seconds = "0" + date.getSeconds();
-    // let formattedTime =
-    //   hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
-    // console.log(date, time);
 
     const zip = this.props.location.state.zip;
     const city = this.props.location.state.city;
     const state = this.props.location.state.state;
 
-    for (let i = 0; i < hourlyFeelsLike.length; i++) {
-      if (hourlyFeelsLike[i] > 65.0) {
-        console.log("less than 70!");
-      }
-    }
     return (
       <div id="main">
         <div className="container p-3">
@@ -86,6 +89,7 @@ class WeatherResults extends React.Component {
                 <div className="card-body legend">
                   <Legend />
                 </div>
+                <div className="currentLocation">{this.state.location}</div>
                 <div className="row centered-rows">
                   <div className="date-column">
                     <p>Date</p>

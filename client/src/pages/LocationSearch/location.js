@@ -6,11 +6,11 @@ function LocationSearch() {
   return (
     <Textbox
       title="Location Search"
-      text="Enter your zip code"
+      text="Please enter your location"
       formDisplay="block"
-      placeholder1="Enter zip code"
-      placeholder2="Enter city"
-      placeholder3="Enter state"
+      placeholder1="Enter zip code (e.g. 92101)"
+      placeholder2="Enter city (e.g. San Diego)"
+      placeholder3="Enter state (e.g. California)"
       buttonDisplay="none"
     ></Textbox>
   );

@@ -34,6 +34,12 @@ class LocationForm extends React.Component {
       }
       return;
     }
+    while (this.state.zip !== "") {
+      if (this.state.zip.length !== 5) {
+        throw "Please enter a 5-digit zip code";
+      }
+      return;
+    }
   }
 
   handleSubmit(event) {
@@ -74,31 +80,37 @@ class LocationForm extends React.Component {
             {/* Input for zip code */}
             <div className="centeredRow">
               <input
+                className="inputField"
                 type="text"
+                pattern="[0-9]*"
                 value={this.state.zip}
                 onChange={this.handleZipChange}
                 placeholder={this.props.placeholder1}
               />
             </div>
-            {/* <h5>Or</h5> */}
+            <h5 className="or">Or</h5>
             {/* Input for city */}
-            {/* <div className="centeredRow">
+            <div className="centeredRow">
               <input
+                className="inputField"
                 type="text"
+                pattern="^[a-zA-Z ]+$"
                 value={this.state.city}
                 onChange={this.handleCityChange}
                 placeholder={this.props.placeholder2}
               />
             </div>
             {/* Input for state */}
-            {/* <div className="centeredRow">
+            <div className="centeredRow">
               <input
+                className="inputField"
                 type="text"
+                pattern="^[a-zA-Z ]+$"
                 value={this.state.state}
                 onChange={this.handleStateChange}
                 placeholder={this.props.placeholder3}
               />
-            </div> */}
+            </div>
           </label>
           <div className="centeredRow">
             <input type="submit" value="Next" />
