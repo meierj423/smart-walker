@@ -1,7 +1,6 @@
 import React from "react";
 import Legend from "../../components/Legend";
 import "./weather.css";
-import Textbox from "../../components/TextBox";
 
 const WEATHER_API_KEY = "3cb3221cf83645ed701a2873e477b9b9";
 const GEOCODE_API_KEY = "AIzaSyArMGDSwWUvndNNSTGCV27GSE8IUwYgiMw";
@@ -22,7 +21,6 @@ class WeatherResults extends React.Component {
       ).then((res) => {
         res.json().then((data) => {
           let locationData = data.results[0].formatted_address;
-          console.log(locationData);
           this.setState({ location: locationData });
           let lat = data.results[0].geometry.location.lat;
           let lng = data.results[0].geometry.location.lng;
@@ -41,9 +39,7 @@ class WeatherResults extends React.Component {
         `https://maps.googleapis.com/maps/api/geocode/json?address=${city}+${state}&key=${GEOCODE_API_KEY}`
       ).then((res) => {
         res.json().then((data) => {
-          console.log(data);
           let locationData = data.results[0].formatted_address;
-          console.log(locationData);
           this.setState({ location: locationData });
           let lat = data.results[0].geometry.location.lat;
           let lng = data.results[0].geometry.location.lng;
@@ -66,8 +62,8 @@ class WeatherResults extends React.Component {
     const forecastArr = this.state.forecast;
 
     // Table data
+    // ================================================================
     const unixTimeStamps = forecastArr.map((hour) => hour.dt);
-    const hourlyFeelsLike = forecastArr.map((hour) => hour.feels_like);
 
     const dates = unixTimeStamps.map((timestamp) =>
       new Date(timestamp * 1000).toLocaleDateString()
@@ -75,10 +71,7 @@ class WeatherResults extends React.Component {
     const times = unixTimeStamps.map((timestamp) =>
       new Date(timestamp * 1000).toLocaleTimeString()
     );
-
-    const zip = this.props.location.state.zip;
-    const city = this.props.location.state.city;
-    const state = this.props.location.state.state;
+    // ================================================================
 
     return (
       <div id="main">

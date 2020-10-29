@@ -12,7 +12,7 @@ function Legend() {
           <p className="limits safe">Safe</p>
         </div>
         <div className="col">
-          <p className="limits caution">Caution</p>
+          <p className="limits caution">Be Cautious</p>
         </div>
 
         <div className="col">

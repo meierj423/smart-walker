@@ -44,9 +44,6 @@ class LocationForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    // alert(
-    //   `Zip: ${this.state.zip} | City: ${this.state.city} | State: ${this.state.state}`
-    // );
     try {
       this.locationCheck();
       this.setState({ redirect: true });
