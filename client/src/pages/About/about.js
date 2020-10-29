@@ -12,11 +12,11 @@ function About() {
               <h1 className="card-body header">About</h1>
               <p>
                 This app was created with your dog in mind. Our furry companions
-                are not impervious to the elements and, as owners, we must be
-                mindful of their safety.
+                are not impervious to extreme weather conditions and, as owners,
+                we must be mindful of their safety.
               </p>
               <br />
-              <p>
+              {/* <p>
                 After entering your zip code, you will be presented with an
                 hourly forecast for the next 48 hours. The temperatures listed
                 will be colored either <span style={{ color: "red" }}>red</span>
@@ -36,19 +36,23 @@ function About() {
                 <span style={{ color: "green" }}> green</span> mean that it is
                 safe for just about any dog- have fun!
               </p>
-              <br />
+              <br /> */}
               <p>
                 For more information on your dog and hot weather, please click:{" "}
                 <a href="https://www.gopetplan.com/sites/default/files/inline-images/How%20Hot%20Is%20Too%20Hot%20infographic.png">
                   here
                 </a>
               </p>
-              <br />
               <p>
-                For more information on your dog and hot weather, please click{" "}
-                <a href="https://www.gopetplan.com/sites/default/files/inline-images/How%20Hot%20Is%20Too%20Hot%20infographic.png">
+                For more information on your dog and cold weather, please click{" "}
+                <a href="https://www.gopetplan.com/sites/default/files/inline-images/PETP_2245_HowColdIsTooCold_Infographic_0918.png">
                   here
                 </a>
+              </p>
+              <br />
+              <p className="note">
+                *Apparent (i.e. feels like) temperatures are used in this
+                application - NOT actual temperatures
               </p>
             </div>
           </div>
