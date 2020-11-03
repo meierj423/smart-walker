@@ -28,6 +28,7 @@ class Home extends React.Component {
         btnMsg="Let's Begin"
         formDisplay="none"
         orDisplay="none"
+        lastSearchedDisplay="block"
       />
     );
   }

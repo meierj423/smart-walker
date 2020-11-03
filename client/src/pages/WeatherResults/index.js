@@ -31,7 +31,7 @@ class WeatherResults extends React.Component {
             .catch((err) => {
               console.log(err);
             });
-            
+
           this.setState({ location: locationData });
           let lat = data.results[0].geometry.location.lat;
           let lng = data.results[0].geometry.location.lng;
@@ -51,6 +51,15 @@ class WeatherResults extends React.Component {
       ).then((res) => {
         res.json().then((data) => {
           let locationData = data.results[0].formatted_address;
+
+          API.saveLastLocation(locationData)
+            .then((res) => {
+              console.log("Results saved successfully");
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+
           this.setState({ location: locationData });
           let lat = data.results[0].geometry.location.lat;
           let lng = data.results[0].geometry.location.lng;

@@ -4,6 +4,7 @@ import GenericButton from "../Button/button";
 import LocationForm from "../Form";
 
 function Textbox({ ...props }) {
+  console.log(props);
   return (
     <div id="main">
       <div className="container p-3">
@@ -24,7 +25,13 @@ function Textbox({ ...props }) {
                 buttonDisplay={props.buttonDisplay}
                 btnMsg={props.btnMsg}
               />
-              <div>Last Searched: {props.lastSearched}</div>
+              <div
+                className="last-searched"
+                style={{ display: props.lastSearchedDisplay }}
+              >
+                <span className="last-searched-text">Last Searched Location: </span>
+                <span className="last-searched-value">{props.lastSearched}</span>
+              </div>
             </div>
           </div>
         </div>

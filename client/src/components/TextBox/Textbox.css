@@ -13,11 +13,11 @@
 
 .card-title,
 .card-subtitle,
-.beginBtn, .or, .centeredRow {
+.beginBtn, .or, .centeredRow, .last-searched {
   text-align: center;
 }
 
-.card-title, .or {
+.card-title, .or, .last-searched {
   color: rgb(255, 255, 255);
 }
 
@@ -30,6 +30,6 @@
   margin-top: 2rem;
 }
 
-.or {
+.or, .last-searched {
   margin: 1rem;
 }

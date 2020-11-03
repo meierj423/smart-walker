@@ -12,6 +12,7 @@ function LocationSearch() {
       placeholder2="Enter city (e.g. San Diego)"
       placeholder3="Enter state (e.g. California)"
       buttonDisplay="none"
+      lastSearchedDisplay="none"
     ></Textbox>
   );
 }
