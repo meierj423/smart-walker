@@ -1,11 +1,11 @@
 const express = require("express");
 const path = require("path");
-// const initDb = require("./config/initDb");
+const initDb = require("./config/initDb");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const zipRouter = require("./routes/api-zip");
+const zipRouter = require("./routes/searches.js");
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 // log all requests to the console in development
@@ -19,16 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(zipRouter);
 
-// initDb();
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/smart-walker",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  }
-);
+initDb();
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

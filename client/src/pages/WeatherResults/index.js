@@ -1,6 +1,7 @@
 import React from "react";
 import Legend from "../../components/Legend";
 import "./weather.css";
+import API from "../../utils/API";
 
 const WEATHER_API_KEY = "3cb3221cf83645ed701a2873e477b9b9";
 const GEOCODE_API_KEY = "AIzaSyArMGDSwWUvndNNSTGCV27GSE8IUwYgiMw";
@@ -20,7 +21,17 @@ class WeatherResults extends React.Component {
         `https://maps.googleapis.com/maps/api/geocode/json?address=${zip}&key=${GEOCODE_API_KEY}`
       ).then((res) => {
         res.json().then((data) => {
+          console.log("data", data.results[0].formatted_address);
           let locationData = data.results[0].formatted_address;
+
+          API.saveLastLocation(locationData)
+            .then((res) => {
+              console.log("Results saved successfully");
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+
           this.setState({ location: locationData });
           let lat = data.results[0].geometry.location.lat;
           let lng = data.results[0].geometry.location.lng;
