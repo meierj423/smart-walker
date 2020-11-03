@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const mongoUri = process.env.MONGODB_URI || "mongodb+srv://dbUser:dbUserPassword@cluster0.hpfet.mongodb.net/smartwalkerDB?retryWrites=true&w=majority";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://dbUser:dbUserPassword@cluster0.hpfet.mongodb.net/smartwalkerDB?retryWrites=true&w=majority";
 
 const dbOptions = {
   useNewUrlParser: true,
@@ -11,7 +11,7 @@ const dbOptions = {
 
 module.exports = () => {
   return mongoose
-    .connect(mongoUri, dbOptions)
+    .connect(MONGODB_URI, dbOptions)
     .then(() => console.log("MongoDB Connected!"))
     .catch((err) => console.error(err));
 };
