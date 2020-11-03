@@ -3,6 +3,8 @@ import "./Textbox.css";
 import GenericButton from "../Button/button";
 import LocationForm from "../Form";
 
+
+
 function Textbox({ ...props }) {
   return (
     <div id="main">
@@ -24,6 +26,7 @@ function Textbox({ ...props }) {
                 buttonDisplay={props.buttonDisplay}
                 btnMsg={props.btnMsg}
               />
+              <div>Last Searched:</div>
             </div>
           </div>
         </div>

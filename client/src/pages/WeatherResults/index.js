@@ -31,7 +31,7 @@ class WeatherResults extends React.Component {
             .catch((err) => {
               console.log(err);
             });
-
+            
           this.setState({ location: locationData });
           let lat = data.results[0].geometry.location.lat;
           let lng = data.results[0].geometry.location.lng;

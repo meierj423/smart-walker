@@ -7,4 +7,7 @@ export default {
       location: location,
     });
   },
+  getLastLocation: function () {
+    return axios.get("/api/locations");
+  },
 };

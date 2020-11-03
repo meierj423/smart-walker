@@ -5,6 +5,8 @@ const router = express.Router();
 
 router.get("/api/locations", (req, res) => {
   Search.find({})
+    .limit(1)
+    .sort({ $natural: -1 })
     .then((data) => {
       if (data) {
         res.json(data);
@@ -15,9 +17,21 @@ router.get("/api/locations", (req, res) => {
     .catch((err) => res.status(400).send(err));
 });
 
-router.post("/api/recent-location", (req, res) => {
-  console.log("Body:", req.body);
-  res.json(req.body);
+// Creates new location in database
+router.post("/api/recent-location", ({ body }, res) => {
+  Search.create(body)
+    .then((body) => {
+      console.log("data save in db!!");
+      res.json(body);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+// Displays most recently searched location
+router.get("/api/recent-location", (req, res) => {
+  return res.json(location);
 });
 
 module.exports = router;
