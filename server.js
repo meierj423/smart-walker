@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const initDb = require("./config/initDb");
+const initDb = require("./config/initDB");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const zipRouter = require("./routes/searches.js");
