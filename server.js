@@ -17,6 +17,7 @@ if (process.env.NODE_ENV !== "production") {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Setting up express to use the routes in searches.js
 app.use(zipRouter);
 
 initDb();

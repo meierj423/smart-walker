@@ -160,15 +160,6 @@ class WeatherResults extends React.Component {
           </div>
         </div>
       </div>
-
-      // <Textbox
-      //   title="Forecast"
-      //   text={`Zip: ${zip} | City: ${city} | State: ${state}`}
-      //   buttonDisplay="none"
-      //   btnMsg="Let's Begin"
-      //   formDisplay="none"
-      //   orDisplay="none"
-      // />
     );
   }
 }

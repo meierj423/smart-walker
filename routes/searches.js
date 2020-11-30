@@ -3,6 +3,7 @@ const Search = require("../models/Search");
 
 const router = express.Router();
 
+// Finds all locations in DB, sorts them by newest, and returns JSON data
 router.get("/api/locations", (req, res) => {
   Search.find({})
     .limit(1)
@@ -31,7 +32,7 @@ router.post("/api/recent-location", ({ body }, res) => {
 
 // Displays most recently searched location
 router.get("/api/recent-location", (req, res) => {
-  return res.json(location);
+  return res.json(req.body);
 });
 
 module.exports = router;
