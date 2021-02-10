@@ -4,7 +4,7 @@ import "./weather.css";
 import API from "../../utils/API";
 
 const WEATHER_API_KEY = "3cb3221cf83645ed701a2873e477b9b9";
-const GEOCODE_API_KEY = "AIzaSyBSERtNQ092wshXu6PXus6G6nViFMp1kIA";
+const GEOCODE_API_KEY = "AIzaSyBc_DTfXxDbVMeDlTrtQWmmF3ZC8qNzNTc";
 
 class WeatherResults extends React.Component {
   constructor(props) {
